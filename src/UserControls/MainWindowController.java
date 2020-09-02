@@ -4,7 +4,6 @@ import Objects.Inventory;
 import Objects.Part;
 import Objects.Product;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,19 +16,23 @@ import javafx.stage.Stage;
 public class MainWindowController {
     @FXML TableView<Part> grdParts;
     @FXML TableView<Product> grdProducts;
-    private final ObservableList<Part> parts = FXCollections.observableArrayList();
-    private final ObservableList<Product> products = FXCollections.observableArrayList();
     public Inventory inventory;
 
     public void init(){
         this.inventory = new Inventory();
-        //this.parts.setAll(this.inventory.getAllParts());
-        //this.products.setAll(this.inventory.getAllProducts());
+        ObservableList<Part> parts = inventory.getAllParts();
+        ObservableList<Product> products = inventory.getAllProducts();
+        if (parts != null && parts.stream().count() > 0){
+            grdParts.setItems(parts);
+        }
+        if (products != null && products.stream().count() > 0){
+            grdProducts.setItems(products);
+        }
     }
 
     public void btnDeletePart_Click(ActionEvent actionEvent) {
         Part selectedPart = grdParts.getSelectionModel().getSelectedItem();
-        this.inventory.deletePart(selectedPart);
+        if (selectedPart != null){ this.inventory.deletePart(selectedPart); }
     }
 
     public void btnModPart_Click(ActionEvent actionEvent) throws Exception {
@@ -53,7 +56,7 @@ public class MainWindowController {
 
     public void btnDeleteProduct_Click(ActionEvent actionEvent) {
         Product selectedProduct = grdProducts.getSelectionModel().getSelectedItem();
-        this.inventory.deleteProduct(selectedProduct);
+        if (selectedProduct != null) { this.inventory.deleteProduct(selectedProduct); }
     }
 
     public void btnModProduct_Click(ActionEvent actionEvent) throws Exception {
