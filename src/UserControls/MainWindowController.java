@@ -21,11 +21,11 @@ public class MainWindowController {
     private final ObservableList<Product> products = FXCollections.observableArrayList();
     public Inventory inventory;
 
-    /*public MainWindowController(){
+    public void init(){
         this.inventory = new Inventory();
-        this.parts.setAll(this.inventory.getAllParts());
-        this.products.setAll(this.inventory.getAllProducts());
-    }*/
+        //this.parts.setAll(this.inventory.getAllParts());
+        //this.products.setAll(this.inventory.getAllProducts());
+    }
 
     public void btnDeletePart_Click(ActionEvent actionEvent) {
         Part selectedPart = grdParts.getSelectionModel().getSelectedItem();
