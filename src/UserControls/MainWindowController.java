@@ -22,10 +22,10 @@ public class MainWindowController {
         this.inventory = new Inventory();
         ObservableList<Part> parts = inventory.getAllParts();
         ObservableList<Product> products = inventory.getAllProducts();
-        if (parts != null && parts.stream().count() > 0){
+        if (parts != null && parts.size() > 0){
             grdParts.setItems(parts);
         }
-        if (products != null && products.stream().count() > 0){
+        if (products != null && products.size() > 0){
             grdProducts.setItems(products);
         }
     }
