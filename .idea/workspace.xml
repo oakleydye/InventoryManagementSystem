@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oakleyDyeSoftwareInventory/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oakleyDyeSoftwareInventory/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oakleyDyeSoftwareInventory/UserControls/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oakleyDyeSoftwareInventory/UserControls/MainWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oakleyDyeSoftwareInventory/UserControls/MainWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oakleyDyeSoftwareInventory/UserControls/MainWindowController.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,6 +69,9 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -149,7 +158,7 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="oakleyDyeSoftwareInventory" />
-      <option name="VM_PARAMETERS" value="/Downloads/javafx-sdk-11.0.2/lib --add-modules=javafx.controls.javafx.fxml -p /usr/lib/jvm/javafx-sdk-11.0.2/lib --add-modules javafx.controls" />
+      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/Downloads/javafx-sdk-11.0.2/lib --add-modules=javafx.controls,javafx.fxml,javafx.base,javafx.graphics" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value=".*" />
@@ -168,70 +177,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
       </option>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="oakleyDyeSoftwareInventory" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="oakleyDyeSoftwareInventory" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -268,6 +219,7 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1598535789783" duration="17393000" />
+      <workItem from="1599106265831" duration="849000" />
     </task>
     <servers />
   </component>
@@ -284,6 +236,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
@@ -294,10 +247,10 @@
       <screen x="0" y="22" width="1280" height="778" />
     </state>
     <state x="128" y="22" key="#Project_Structure/0.22.1280.778@0.22.1280.778" timestamp="1598535858492" />
-    <state x="104" y="73" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598932792739">
+    <state x="104" y="73" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598966392379">
       <screen x="0" y="22" width="1280" height="778" />
     </state>
-    <state x="104" y="73" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.22.1280.778@0.22.1280.778" timestamp="1598932792739" />
+    <state x="104" y="73" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.22.1280.778@0.22.1280.778" timestamp="1598966392379" />
     <state x="427" y="123" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1598932187290">
       <screen x="0" y="22" width="1280" height="778" />
     </state>
@@ -306,38 +259,38 @@
       <screen x="0" y="22" width="1280" height="778" />
     </state>
     <state x="453" y="124" key="#com.intellij.ide.util.MemberChooser/0.22.1280.778@0.22.1280.778" timestamp="1598876302172" />
-    <state width="1238" height="198" key="GridCell.Tab.0.bottom" timestamp="1598932794819">
+    <state width="1238" height="246" key="GridCell.Tab.0.bottom" timestamp="1599101835552">
       <screen x="0" y="22" width="1280" height="778" />
     </state>
-    <state width="1238" height="198" key="GridCell.Tab.0.bottom/0.22.1280.778@0.22.1280.778" timestamp="1598932794819" />
-    <state width="1238" height="198" key="GridCell.Tab.0.center" timestamp="1598932794815">
+    <state width="1238" height="246" key="GridCell.Tab.0.bottom/0.22.1280.778@0.22.1280.778" timestamp="1599101835552" />
+    <state width="1238" height="246" key="GridCell.Tab.0.center" timestamp="1599101835551">
       <screen x="0" y="22" width="1280" height="778" />
     </state>
-    <state width="1238" height="198" key="GridCell.Tab.0.center/0.22.1280.778@0.22.1280.778" timestamp="1598932794815" />
-    <state width="1238" height="198" key="GridCell.Tab.0.left" timestamp="1598932794810">
+    <state width="1238" height="246" key="GridCell.Tab.0.center/0.22.1280.778@0.22.1280.778" timestamp="1599101835551" />
+    <state width="1238" height="246" key="GridCell.Tab.0.left" timestamp="1599101835551">
       <screen x="0" y="22" width="1280" height="778" />
     </state>
-    <state width="1238" height="198" key="GridCell.Tab.0.left/0.22.1280.778@0.22.1280.778" timestamp="1598932794810" />
-    <state width="1238" height="198" key="GridCell.Tab.0.right" timestamp="1598932794817">
+    <state width="1238" height="246" key="GridCell.Tab.0.left/0.22.1280.778@0.22.1280.778" timestamp="1599101835551" />
+    <state width="1238" height="246" key="GridCell.Tab.0.right" timestamp="1599101835552">
       <screen x="0" y="22" width="1280" height="778" />
     </state>
-    <state width="1238" height="198" key="GridCell.Tab.0.right/0.22.1280.778@0.22.1280.778" timestamp="1598932794817" />
-    <state width="1238" height="246" key="GridCell.Tab.1.bottom" timestamp="1598932406815">
+    <state width="1238" height="246" key="GridCell.Tab.0.right/0.22.1280.778@0.22.1280.778" timestamp="1599101835552" />
+    <state width="1238" height="246" key="GridCell.Tab.1.bottom" timestamp="1599101835554">
       <screen x="0" y="22" width="1280" height="778" />
     </state>
-    <state width="1238" height="246" key="GridCell.Tab.1.bottom/0.22.1280.778@0.22.1280.778" timestamp="1598932406815" />
-    <state width="1238" height="246" key="GridCell.Tab.1.center" timestamp="1598932406813">
+    <state width="1238" height="246" key="GridCell.Tab.1.bottom/0.22.1280.778@0.22.1280.778" timestamp="1599101835554" />
+    <state width="1238" height="246" key="GridCell.Tab.1.center" timestamp="1599101835553">
       <screen x="0" y="22" width="1280" height="778" />
     </state>
-    <state width="1238" height="246" key="GridCell.Tab.1.center/0.22.1280.778@0.22.1280.778" timestamp="1598932406813" />
-    <state width="1238" height="246" key="GridCell.Tab.1.left" timestamp="1598932406813">
+    <state width="1238" height="246" key="GridCell.Tab.1.center/0.22.1280.778@0.22.1280.778" timestamp="1599101835553" />
+    <state width="1238" height="246" key="GridCell.Tab.1.left" timestamp="1599101835553">
       <screen x="0" y="22" width="1280" height="778" />
     </state>
-    <state width="1238" height="246" key="GridCell.Tab.1.left/0.22.1280.778@0.22.1280.778" timestamp="1598932406813" />
-    <state width="1238" height="246" key="GridCell.Tab.1.right" timestamp="1598932406814">
+    <state width="1238" height="246" key="GridCell.Tab.1.left/0.22.1280.778@0.22.1280.778" timestamp="1599101835553" />
+    <state width="1238" height="246" key="GridCell.Tab.1.right" timestamp="1599101835554">
       <screen x="0" y="22" width="1280" height="778" />
     </state>
-    <state width="1238" height="246" key="GridCell.Tab.1.right/0.22.1280.778@0.22.1280.778" timestamp="1598932406814" />
+    <state width="1238" height="246" key="GridCell.Tab.1.right/0.22.1280.778@0.22.1280.778" timestamp="1599101835554" />
     <state x="141" y="50" key="SettingsEditor" timestamp="1598931924795">
       <screen x="0" y="22" width="1280" height="778" />
     </state>

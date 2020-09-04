@@ -5,14 +5,18 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.Pane?>
 <GridPane fx:controller="UserControls.MainWindowController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 
-    <Label text="Inventory Management System" />
-    <GridPane GridPane.rowIndex="1" GridPane.columnIndex="0">
+    <Label GridPane.columnIndex="1" text="Inventory Management System" />
+    <Text GridPane.rowIndex="1" GridPane.columnSpan="2" text=""/>
+    <GridPane GridPane.rowIndex="2" GridPane.columnIndex="1">
         <Label text="Parts" />
-        <TextField GridPane.columnIndex="1" promptText="Search by Part ID or Name" />
-        <TableView GridPane.rowIndex="2" GridPane.columnSpan="2" fx:id="grdParts">
+        <Pane GridPane.hgrow="ALWAYS"/>
+        <TextField GridPane.columnIndex="2" promptText="Search by Part ID or Name" />
+        <TableView GridPane.rowIndex="2" GridPane.columnSpan="3" fx:id="grdParts">
             <columns>
                 <TableColumn text="Part ID" />
                 <TableColumn text="Part Name" />
@@ -20,17 +24,19 @@
                 <TableColumn text="Price/Cost per Unit" />
             </columns>
         </TableView>
-        <HBox GridPane.columnSpan="2" GridPane.rowIndex="3" alignment="CENTER_RIGHT">
+        <HBox GridPane.columnIndex="2" GridPane.rowIndex="3" spacing="10">
+            <Pane HBox.hgrow="ALWAYS"/>
             <Button text="Delete" onAction="#btnDeletePart_Click"/>
             <Button text="Modify" onAction="#btnModPart_Click"/>
             <Button text="Add" onAction="#btnAddPart_Click"/>
         </HBox>
     </GridPane>
 
-    <GridPane GridPane.rowIndex="1" GridPane.columnIndex="2">
+    <GridPane GridPane.rowIndex="2" GridPane.columnIndex="3">
         <Label text="Products"/>
-        <TextField GridPane.columnIndex="1" promptText="Search by Product ID or Name"/>
-        <TableView GridPane.rowIndex="2" GridPane.columnSpan="2" fx:id="grdProducts">
+        <Pane GridPane.hgrow="ALWAYS"/>
+        <TextField GridPane.columnIndex="2" promptText="Search by Product ID or Name"/>
+        <TableView GridPane.rowIndex="2" GridPane.columnSpan="3" fx:id="grdProducts">
             <columns>
                 <TableColumn text="Product ID"/>
                 <TableColumn text="Product Name"/>
@@ -38,12 +44,15 @@
                 <TableColumn text="Price/Cost per Unit"/>
             </columns>
         </TableView>
-        <HBox GridPane.rowIndex="3" GridPane.columnSpan="2" alignment="CENTER_RIGHT">
+        <HBox GridPane.rowIndex="3" GridPane.columnIndex="2" spacing="10">
+            <Pane HBox.hgrow="ALWAYS"/>
             <Button text="Delete" onAction="#btnDeleteProduct_Click"/>
             <Button text="Modify" onAction="#btnModProduct_Click"/>
             <Button text="Add" onAction="#btnAddProduct_Click"/>
         </HBox>
     </GridPane>
+    <Text GridPane.columnIndex="4" text=""/>
 
-    <Button GridPane.rowIndex="2" GridPane.columnIndex="2" alignment="BASELINE_RIGHT" text="Exit" onAction="#btnExit_Click"/>
+    <Pane GridPane.rowIndex="4" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS"/>
+    <Button GridPane.rowIndex="4" GridPane.columnIndex="3" text="Exit" onAction="#btnExit_Click"/>
 </GridPane>
