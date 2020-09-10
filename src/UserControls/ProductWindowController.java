@@ -40,8 +40,16 @@ public class ProductWindowController {
     }
 
     public void btnSave_Click(ActionEvent actionEvent) {
+        ObservableList<Product> products = this.inventory.getAllProducts();
+        int maxId = 0;
+        for (Product product : products){
+            if (product.getId() > maxId){
+                maxId = product.getId();
+            }
+        }
+
         Product newProduct = new Product(
-                0, //todo: make auto-generate
+                maxId + 1,
                 txtName.getText(),
                 Double.parseDouble(txtPrice.getText()),
                 Integer.parseInt(txtInv.getText()),

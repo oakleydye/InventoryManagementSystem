@@ -4,6 +4,7 @@ import Objects.InHouse;
 import Objects.Inventory;
 import Objects.Outsourced;
 import Objects.Part;
+import javafx.beans.Observable;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -75,9 +76,17 @@ public class PartWindowController {
 
     public void btnSave_Click(ActionEvent actionEvent) {
         try{
+            ObservableList<Part> parts = this.inventory.getAllParts();
+            int maxId = 0;
+            for (Part part : parts){
+                if (part.getId() > maxId){
+                    maxId = part.getId();
+                }
+            }
+
             if (radInHouse.isSelected()){
                 InHouse part = new InHouse(
-                        0,
+                        maxId + 1,
                         txtName.getText(),
                         Double.parseDouble(txtPrice.getText()),
                         Integer.parseInt(txtInv.getText()),
@@ -90,7 +99,7 @@ public class PartWindowController {
             }
             else{
                 Outsourced part = new Outsourced(
-                        0,
+                        maxId + 1,
                         txtName.getText(),
                         Double.parseDouble(txtPrice.getText()),
                         Integer.parseInt(txtInv.getText()),

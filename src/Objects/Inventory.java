@@ -1,10 +1,11 @@
 package Objects;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Inventory {
-    private ObservableList<Part> allParts = null;
-    private ObservableList<Product> allProducts = null;
+    private ObservableList<Part> allParts = FXCollections.observableArrayList();
+    private ObservableList<Product> allProducts = FXCollections.observableArrayList();
 
     public void addPart(Part newPart){
         allParts.add(newPart);
