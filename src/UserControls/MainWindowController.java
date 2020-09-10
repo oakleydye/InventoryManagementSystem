@@ -69,7 +69,10 @@ public class MainWindowController {
     }
 
     private void showProductWindow(boolean isModify, Product selectedProduct) throws Exception {
-        Parent scene = FXMLLoader.load(getClass().getResource("ProductWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductWindow.fxml"));
+        Parent scene = fxmlLoader.load();
+        ProductWindowController controller = fxmlLoader.getController();
+        controller.init(this.inventory, selectedProduct, isModify);
         Stage stage = new Stage();
         stage.setScene(new Scene(scene));
         stage.show();

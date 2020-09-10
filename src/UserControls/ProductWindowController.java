@@ -23,20 +23,30 @@ public class ProductWindowController {
     @FXML TableView<Part> grdAllParts;
     @FXML TableView<Part> grdAssociatedParts;
     public Inventory inventory = null;
+    public Product product = null;
 
-    public void setInventory(Inventory inventory){
+    public void init(Inventory inventory, Product selectedProduct, boolean isModify){
+        this.product = selectedProduct;
         this.inventory = inventory;
+        grdAllParts.setItems(inventory.getAllParts());
+        if (isModify){
+            txtName.setText(selectedProduct.getName());
+            txtInv.setText(Integer.toString(selectedProduct.getStock()));
+            txtPrice.setText(Double.toString(selectedProduct.getPrice()));
+            txtMax.setText(Integer.toString(selectedProduct.getMax()));
+            txtMin.setText(Integer.toString(selectedProduct.getMin()));
+            grdAssociatedParts.setItems(selectedProduct.getAllAssociatedParts());
+        }
     }
 
     public void btnRemovePart_Click(ActionEvent actionEvent) {
         Part selectedPart = grdAssociatedParts.getSelectionModel().getSelectedItem();
-        this.inventory.deletePart(selectedPart);
-        //grdAssociatedParts.getItems().remove(selectedPart);
+        this.product.deleteAssociatedPart(selectedPart);
     }
 
     public void btnAddAssociatedPart_Click(ActionEvent actionEvent) {
         Part selectedPart = grdAllParts.getSelectionModel().getSelectedItem();
-        grdAssociatedParts.getItems().add(selectedPart);
+        this.product.addAssociatedPart(selectedPart);
     }
 
     public void btnSave_Click(ActionEvent actionEvent) {

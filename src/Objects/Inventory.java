@@ -34,11 +34,21 @@ public class Inventory {
     }
 
     public void updatePart(int index, Part selectedPart){
-
+        for (Part part : getAllParts()){
+            if (part.getId() == index){
+                part = selectedPart;
+                break;
+            }
+        }
     }
 
     public void updateProduct(int index, Product newProduct){
-
+        for (Product product : getAllProducts()){
+            if (product.getId() == index){
+                product = newProduct;
+                break;
+            }
+        }
     }
 
     public boolean deletePart(Part selectedPart){

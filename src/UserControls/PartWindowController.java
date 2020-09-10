@@ -13,8 +13,11 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 public class PartWindowController {
+    @FXML Label lblAdd;
+    @FXML Label lblModify;
     @FXML RadioButton radInHouse;
     @FXML RadioButton radOutsourced;
+    @FXML TextField txtID;
     @FXML TextField txtName;
     @FXML TextField txtInv;
     @FXML TextField txtPrice;
@@ -30,6 +33,8 @@ public class PartWindowController {
     public void init(Inventory inventory, Part part, boolean isModify){
         this.inventory = inventory;
         if (isModify){
+            lblModify.setVisible(true);
+            lblAdd.setVisible(false);
             this.selectedPart = part;
             txtName.setText(part.getName());
             txtInv.setText(Integer.toString(part.getStock()));
@@ -84,30 +89,58 @@ public class PartWindowController {
                 }
             }
 
-            if (radInHouse.isSelected()){
-                InHouse part = new InHouse(
-                        maxId + 1,
-                        txtName.getText(),
-                        Double.parseDouble(txtPrice.getText()),
-                        Integer.parseInt(txtInv.getText()),
-                        Integer.parseInt(txtMin.getText()),
-                        Integer.parseInt(txtMax.getText()),
-                        Integer.parseInt(txtMachineId.getText())
-                );
-                //todo: make sure this actually updates in the grid
-                this.inventory.addPart(part);
+            if (lblAdd.isVisible()){
+                if (radInHouse.isSelected()){
+                    InHouse part = new InHouse(
+                            maxId + 1,
+                            txtName.getText(),
+                            Double.parseDouble(txtPrice.getText()),
+                            Integer.parseInt(txtInv.getText()),
+                            Integer.parseInt(txtMin.getText()),
+                            Integer.parseInt(txtMax.getText()),
+                            Integer.parseInt(txtMachineId.getText())
+                    );
+                    //todo: make sure this actually updates in the grid
+                    this.inventory.addPart(part);
+                }
+                else{
+                    Outsourced part = new Outsourced(
+                            maxId + 1,
+                            txtName.getText(),
+                            Double.parseDouble(txtPrice.getText()),
+                            Integer.parseInt(txtInv.getText()),
+                            Integer.parseInt(txtMin.getText()),
+                            Integer.parseInt(txtMax.getText()),
+                            txtCompany.getText()
+                    );
+                    this.inventory.addPart(part);
+                }
             }
             else{
-                Outsourced part = new Outsourced(
-                        maxId + 1,
-                        txtName.getText(),
-                        Double.parseDouble(txtPrice.getText()),
-                        Integer.parseInt(txtInv.getText()),
-                        Integer.parseInt(txtMin.getText()),
-                        Integer.parseInt(txtMax.getText()),
-                        txtCompany.getText()
-                );
-                this.inventory.addPart(part);
+                if (radInHouse.isSelected()) {
+                    InHouse part = new InHouse(
+                            Integer.parseInt(txtID.getText()),
+                            txtName.getText(),
+                            Double.parseDouble(txtPrice.getText()),
+                            Integer.parseInt(txtInv.getText()),
+                            Integer.parseInt(txtMin.getText()),
+                            Integer.parseInt(txtMax.getText()),
+                            Integer.parseInt(txtMachineId.getText())
+                    );
+                    this.inventory.updatePart(Integer.parseInt(txtID.getText()), part);
+                }
+                else{
+                    Outsourced part = new Outsourced(
+                            Integer.parseInt(txtID.getText()),
+                            txtName.getText(),
+                            Double.parseDouble(txtPrice.getText()),
+                            Integer.parseInt(txtInv.getText()),
+                            Integer.parseInt(txtMin.getText()),
+                            Integer.parseInt(txtMax.getText()),
+                            txtCompany.getText()
+                    );
+                    this.inventory.updatePart(Integer.parseInt(txtID.getText()), part);
+                }
             }
         }
         catch (Exception ex){
