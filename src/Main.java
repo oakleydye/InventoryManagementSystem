@@ -14,8 +14,8 @@ public class Main extends Application {
         primaryStage.setTitle("Inventory Management System");
         MainWindowController controller = loader.getController();
         controller.init();
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.setMaximized(true);
+        primaryStage.setScene(new Scene(root, 800, 600));
+        //primaryStage.setMaximized(true);
         primaryStage.show();
     }
 

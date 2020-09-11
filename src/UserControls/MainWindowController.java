@@ -50,7 +50,7 @@ public class MainWindowController {
         PartWindowController controller = fxmlLoader.getController();
         controller.init(this.inventory, selectedPart, isModify);
         Stage stage = new Stage();
-        stage.setScene(new Scene(scene));
+        stage.setScene(new Scene(scene, 800, 600));
         stage.show();
     }
 
@@ -74,7 +74,7 @@ public class MainWindowController {
         ProductWindowController controller = fxmlLoader.getController();
         controller.init(this.inventory, selectedProduct, isModify);
         Stage stage = new Stage();
-        stage.setScene(new Scene(scene));
+        stage.setScene(new Scene(scene, 800, 600));
         stage.show();
     }
 
