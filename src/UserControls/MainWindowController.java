@@ -19,10 +19,8 @@ public class MainWindowController {
     @FXML TableView<Product> grdProducts;
 
     public void init(){
-        ObservableList<Part> parts = Inventory.getAllParts();
-        ObservableList<Product> products = Inventory.getAllProducts();
-        //grdParts.itemsProperty().bindBidirectional((Property<ObservableList<Part>>) Inventory.getAllParts());
-        //grdProducts.setItems(products);
+        grdParts.itemsProperty().bindBidirectional((Property<ObservableList<Part>>) Inventory.getAllParts());
+        grdProducts.setItems(Inventory.getAllProducts());
     }
 
     public void btnDeletePart_Click(ActionEvent actionEvent) {
