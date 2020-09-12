@@ -27,11 +27,9 @@ public class PartWindowController {
     @FXML TextField txtCompany;
     @FXML Label lblMachineId;
     @FXML Label lblCompany;
-    public Inventory inventory = null;
     public Part selectedPart = null;
 
-    public void init(Inventory inventory, Part part, boolean isModify){
-        this.inventory = inventory;
+    public void init(Part part, boolean isModify){
         if (isModify){
             lblModify.setVisible(true);
             lblAdd.setVisible(false);
@@ -81,7 +79,7 @@ public class PartWindowController {
 
     public void btnSave_Click(ActionEvent actionEvent) {
         try{
-            ObservableList<Part> parts = this.inventory.getAllParts();
+            ObservableList<Part> parts = Inventory.getAllParts();
             int maxId = 0;
             for (Part part : parts){
                 if (part.getId() > maxId){
@@ -101,7 +99,7 @@ public class PartWindowController {
                             Integer.parseInt(txtMachineId.getText())
                     );
                     //todo: make sure this actually updates in the grid
-                    this.inventory.addPart(part);
+                    Inventory.addPart(part);
                 }
                 else{
                     Outsourced part = new Outsourced(
@@ -113,7 +111,7 @@ public class PartWindowController {
                             Integer.parseInt(txtMax.getText()),
                             txtCompany.getText()
                     );
-                    this.inventory.addPart(part);
+                    Inventory.addPart(part);
                 }
             }
             else{
@@ -127,7 +125,7 @@ public class PartWindowController {
                             Integer.parseInt(txtMax.getText()),
                             Integer.parseInt(txtMachineId.getText())
                     );
-                    this.inventory.updatePart(Integer.parseInt(txtID.getText()), part);
+                    Inventory.updatePart(Integer.parseInt(txtID.getText()), part);
                 }
                 else{
                     Outsourced part = new Outsourced(
@@ -139,7 +137,7 @@ public class PartWindowController {
                             Integer.parseInt(txtMax.getText()),
                             txtCompany.getText()
                     );
-                    this.inventory.updatePart(Integer.parseInt(txtID.getText()), part);
+                    Inventory.updatePart(Integer.parseInt(txtID.getText()), part);
                 }
             }
         }

@@ -1,21 +1,22 @@
 package Objects;
 
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Inventory {
-    private ObservableList<Part> allParts = FXCollections.observableArrayList();
-    private ObservableList<Product> allProducts = FXCollections.observableArrayList();
+    private static final ObservableList<Part> allParts = FXCollections.observableArrayList();
+    private static final ObservableList<Product> allProducts = FXCollections.observableArrayList();
 
-    public void addPart(Part newPart){
+    public static void addPart(Part newPart){
         allParts.add(newPart);
     }
 
-    public void addProduct(Product newProduct){
+    public static void addProduct(Product newProduct){
         allProducts.add(newProduct);
     }
 
-    public Part lookupPart(int partId){
+    public static Part lookupPart(int partId){
         for (Part part : allParts){
             if (part.getId() == partId){
                 return part;
@@ -24,7 +25,7 @@ public class Inventory {
         return null;
     }
 
-    public Product lookupProduct(int productId){
+    public static Product lookupProduct(int productId){
         for (Product product : allProducts){
             if (product.getId() == productId){
                 return product;
@@ -33,7 +34,27 @@ public class Inventory {
         return null;
     }
 
-    public void updatePart(int index, Part selectedPart){
+    public static ObservableList<Part> lookupPart(String partName){
+        ObservableList<Part> parts = FXCollections.observableArrayList();
+        for (Part part : allParts){
+            if (part.getName().equals(partName)){
+                parts.add(part);
+            }
+        }
+        return parts;
+    }
+
+    public static ObservableList<Product> lookupProduct(String productName){
+        ObservableList<Product> products = FXCollections.observableArrayList();
+        for (Product product : allProducts){
+            if (product.getName().equals(productName)){
+                products.add(product);
+            }
+        }
+        return products;
+    }
+
+    public static void updatePart(int index, Part selectedPart){
         for (Part part : getAllParts()){
             if (part.getId() == index){
                 part = selectedPart;
@@ -42,7 +63,7 @@ public class Inventory {
         }
     }
 
-    public void updateProduct(int index, Product newProduct){
+    public static void updateProduct(int index, Product newProduct){
         for (Product product : getAllProducts()){
             if (product.getId() == index){
                 product = newProduct;
@@ -51,7 +72,7 @@ public class Inventory {
         }
     }
 
-    public boolean deletePart(Part selectedPart){
+    public static boolean deletePart(Part selectedPart){
         for (Part part : allParts){
             if (part == selectedPart){
                 allParts.remove(part);
@@ -61,7 +82,7 @@ public class Inventory {
         return false;
     }
 
-    public boolean deleteProduct(Product selectedProduct){
+    public static boolean deleteProduct(Product selectedProduct){
         for (Product product : allProducts){
             if (product == selectedProduct){
                 allProducts.remove(product);
@@ -71,11 +92,11 @@ public class Inventory {
         return false;
     }
 
-    public ObservableList<Part> getAllParts(){
+    public static ObservableList<Part> getAllParts(){
         return allParts;
     }
 
-    public ObservableList<Product> getAllProducts() {
+    public static ObservableList<Product> getAllProducts() {
         return allProducts;
     }
 }

@@ -6,6 +6,7 @@ import Objects.Product;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -22,13 +23,11 @@ public class ProductWindowController {
     @FXML TextField txtMin;
     @FXML TableView<Part> grdAllParts;
     @FXML TableView<Part> grdAssociatedParts;
-    public Inventory inventory = null;
     public Product product = null;
 
-    public void init(Inventory inventory, Product selectedProduct, boolean isModify){
+    public void init(Product selectedProduct, boolean isModify){
         this.product = selectedProduct;
-        this.inventory = inventory;
-        grdAllParts.setItems(inventory.getAllParts());
+        grdAllParts.setItems(Inventory.getAllParts());
         if (isModify){
             txtName.setText(selectedProduct.getName());
             txtInv.setText(Integer.toString(selectedProduct.getStock()));
@@ -41,7 +40,13 @@ public class ProductWindowController {
 
     public void btnRemovePart_Click(ActionEvent actionEvent) {
         Part selectedPart = grdAssociatedParts.getSelectionModel().getSelectedItem();
-        this.product.deleteAssociatedPart(selectedPart);
+        if (!this.product.deleteAssociatedPart(selectedPart)){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Inventory Management System");
+            alert.setHeaderText(null);
+            alert.setContentText("Error removing part");
+            alert.showAndWait();
+        }
     }
 
     public void btnAddAssociatedPart_Click(ActionEvent actionEvent) {
@@ -50,7 +55,7 @@ public class ProductWindowController {
     }
 
     public void btnSave_Click(ActionEvent actionEvent) {
-        ObservableList<Product> products = this.inventory.getAllProducts();
+        ObservableList<Product> products = Inventory.getAllProducts();
         int maxId = 0;
         for (Product product : products){
             if (product.getId() > maxId){
@@ -66,7 +71,7 @@ public class ProductWindowController {
                 Integer.parseInt(txtMin.getText()),
                 Integer.parseInt(txtMax.getText())
         );
-        this.inventory.addProduct(newProduct);
+        Inventory.addProduct(newProduct);
     }
 
     public void btnCancel_Click(ActionEvent actionEvent) {

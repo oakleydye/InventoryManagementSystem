@@ -16,12 +16,10 @@ import javafx.stage.Stage;
 public class MainWindowController {
     @FXML TableView<Part> grdParts;
     @FXML TableView<Product> grdProducts;
-    public Inventory inventory;
 
     public void init(){
-        this.inventory = new Inventory();
-        ObservableList<Part> parts = inventory.getAllParts();
-        ObservableList<Product> products = inventory.getAllProducts();
+        ObservableList<Part> parts = Inventory.getAllParts();
+        ObservableList<Product> products = Inventory.getAllProducts();
         if (parts != null && parts.size() > 0){
             grdParts.setItems(parts);
         }
@@ -32,7 +30,7 @@ public class MainWindowController {
 
     public void btnDeletePart_Click(ActionEvent actionEvent) {
         Part selectedPart = grdParts.getSelectionModel().getSelectedItem();
-        if (selectedPart != null){ this.inventory.deletePart(selectedPart); }
+        if (selectedPart != null){ Inventory.deletePart(selectedPart); }
     }
 
     public void btnModPart_Click(ActionEvent actionEvent) throws Exception {
@@ -48,7 +46,7 @@ public class MainWindowController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PartWindow.fxml"));
         Parent scene = fxmlLoader.load();
         PartWindowController controller = fxmlLoader.getController();
-        controller.init(this.inventory, selectedPart, isModify);
+        controller.init(selectedPart, isModify);
         Stage stage = new Stage();
         stage.setScene(new Scene(scene, 800, 600));
         stage.show();
@@ -56,7 +54,7 @@ public class MainWindowController {
 
     public void btnDeleteProduct_Click(ActionEvent actionEvent) {
         Product selectedProduct = grdProducts.getSelectionModel().getSelectedItem();
-        if (selectedProduct != null) { this.inventory.deleteProduct(selectedProduct); }
+        if (selectedProduct != null) { Inventory.deleteProduct(selectedProduct); }
     }
 
     public void btnModProduct_Click(ActionEvent actionEvent) throws Exception {
@@ -72,7 +70,7 @@ public class MainWindowController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductWindow.fxml"));
         Parent scene = fxmlLoader.load();
         ProductWindowController controller = fxmlLoader.getController();
-        controller.init(this.inventory, selectedProduct, isModify);
+        controller.init(selectedProduct, isModify);
         Stage stage = new Stage();
         stage.setScene(new Scene(scene, 800, 600));
         stage.show();
