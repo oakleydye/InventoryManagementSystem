@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <GridPane fx:controller="UserControls.MainWindowController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 
@@ -16,12 +17,20 @@
         <Label text="Parts" />
         <Pane GridPane.hgrow="ALWAYS"/>
         <TextField GridPane.columnIndex="2" promptText="Search by Part ID or Name" />
-        <TableView GridPane.rowIndex="2" GridPane.columnSpan="3" fx:id="grdParts">
+        <TableView GridPane.rowIndex="2" GridPane.columnSpan="3" fx:id="grdParts" items="${controller.parts}">
             <columns>
-                <TableColumn text="Part ID" />
-                <TableColumn text="Part Name" />
-                <TableColumn text="Inventory Level" />
-                <TableColumn text="Price/Cost per Unit" />
+                <TableColumn text="Part ID">
+                    <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Part Name">
+                    <cellValueFactory><PropertyValueFactory property="name"/> </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Inventory Level">
+                    <cellValueFactory><PropertyValueFactory property="stock"/> </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Price/Cost per Unit">
+                    <cellValueFactory><PropertyValueFactory property="price"/> </cellValueFactory>
+                </TableColumn>
             </columns>
         </TableView>
         <HBox GridPane.columnIndex="2" GridPane.rowIndex="3" spacing="10">

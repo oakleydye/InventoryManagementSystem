@@ -4,6 +4,7 @@ import Objects.Inventory;
 import Objects.Part;
 import Objects.Product;
 import javafx.application.Platform;
+import javafx.beans.property.Property;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,12 +21,8 @@ public class MainWindowController {
     public void init(){
         ObservableList<Part> parts = Inventory.getAllParts();
         ObservableList<Product> products = Inventory.getAllProducts();
-        if (parts != null && parts.size() > 0){
-            grdParts.setItems(parts);
-        }
-        if (products != null && products.size() > 0){
-            grdProducts.setItems(products);
-        }
+        //grdParts.itemsProperty().bindBidirectional((Property<ObservableList<Part>>) Inventory.getAllParts());
+        //grdProducts.setItems(products);
     }
 
     public void btnDeletePart_Click(ActionEvent actionEvent) {
