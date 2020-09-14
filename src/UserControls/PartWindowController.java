@@ -140,6 +140,8 @@ public class PartWindowController {
                     Inventory.updatePart(Integer.parseInt(txtID.getText()), part);
                 }
             }
+
+            closeWindow();
         }
         catch (Exception ex){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -150,7 +152,7 @@ public class PartWindowController {
         }
     }
 
-    public void btnCancel_Click(ActionEvent actionEvent) {
+    private void closeWindow() {
         ObservableList<Window> windows = Window.getWindows();
         for (Window window : windows){
             if (window instanceof Stage){
@@ -164,5 +166,9 @@ public class PartWindowController {
         }
         Stage stage = (Stage) radInHouse.getScene().getWindow();
         stage.close();
+    }
+
+    public void btnCancel_Click(ActionEvent actionEvent) {
+        closeWindow();
     }
 }

@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserControls/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserControls/MainWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserControls/PartWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserControls/PartWindowController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +102,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Objects" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -218,7 +219,7 @@
       <workItem from="1598535789783" duration="17393000" />
       <workItem from="1599106265831" duration="1285000" />
       <workItem from="1599622096262" duration="12553000" />
-      <workItem from="1599883780556" duration="3155000" />
+      <workItem from="1599883780556" duration="4276000" />
     </task>
     <servers />
   </component>
@@ -314,6 +315,10 @@
       <screen x="0" y="22" width="1280" height="778" />
     </state>
     <state x="42" y="22" width="1238" height="759" key="dock-window-1/0.22.1280.778@0.22.1280.778" timestamp="1598593447424" />
+    <state x="378" y="155" key="extract.method.dialog" timestamp="1600086667703">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="378" y="155" key="extract.method.dialog/0.0.1280.800@0.0.1280.800" timestamp="1600086667703" />
     <state x="305" y="185" width="670" height="675" key="run.anything.popup" timestamp="1598932242879">
       <screen x="0" y="22" width="1280" height="778" />
     </state>
