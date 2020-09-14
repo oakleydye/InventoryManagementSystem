@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
@@ -19,13 +20,21 @@ public class MainWindowController {
     @FXML TableView<Product> grdProducts;
 
     public void init(){
-        grdParts.itemsProperty().bindBidirectional((Property<ObservableList<Part>>) Inventory.getAllParts());
+        //grdParts.itemsProperty().bindBidirectional((Property<ObservableList<Part>>) Inventory.getAllParts());
         grdProducts.setItems(Inventory.getAllProducts());
     }
 
     public void btnDeletePart_Click(ActionEvent actionEvent) {
         Part selectedPart = grdParts.getSelectionModel().getSelectedItem();
-        if (selectedPart != null){ Inventory.deletePart(selectedPart); }
+        if (selectedPart != null){
+            if (!Inventory.deletePart(selectedPart)){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Inventory Management System");
+                alert.setHeaderText(null);
+                alert.setContentText("Error removing part");
+                alert.showAndWait();
+            }
+        }
     }
 
     public void btnModPart_Click(ActionEvent actionEvent) throws Exception {
@@ -49,7 +58,15 @@ public class MainWindowController {
 
     public void btnDeleteProduct_Click(ActionEvent actionEvent) {
         Product selectedProduct = grdProducts.getSelectionModel().getSelectedItem();
-        if (selectedProduct != null) { Inventory.deleteProduct(selectedProduct); }
+        if (selectedProduct != null) {
+            if (!Inventory.deleteProduct(selectedProduct)){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Inventory Management System");
+                alert.setHeaderText(null);
+                alert.setContentText("Error removing product");
+                alert.showAndWait();
+            }
+        }
     }
 
     public void btnModProduct_Click(ActionEvent actionEvent) throws Exception {

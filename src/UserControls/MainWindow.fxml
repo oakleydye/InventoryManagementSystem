@@ -17,7 +17,7 @@
         <Label text="Parts" />
         <Pane GridPane.hgrow="ALWAYS"/>
         <TextField GridPane.columnIndex="2" promptText="Search by Part ID or Name" />
-        <TableView GridPane.rowIndex="2" GridPane.columnSpan="3" fx:id="grdParts" items="${controller.parts}">
+        <TableView GridPane.rowIndex="2" GridPane.columnSpan="3" fx:id="grdParts">
             <columns>
                 <TableColumn text="Part ID">
                     <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
