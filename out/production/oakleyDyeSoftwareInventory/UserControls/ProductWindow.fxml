@@ -53,10 +53,18 @@
 
     <TableView GridPane.rowIndex="5" GridPane.columnIndex="5" GridPane.rowSpan="3" GridPane.columnSpan="3" fx:id="grdAssociatedParts">
         <columns>
-            <TableColumn text="Part ID"/>
-            <TableColumn text="Name"/>
-            <TableColumn text="Inventory Level"/>
-            <TableColumn text="Price/Cost per Unit"/>
+            <TableColumn text="Part ID">
+                <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Part Name">
+                <cellValueFactory><PropertyValueFactory property="name"/> </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Inventory Level">
+                <cellValueFactory><PropertyValueFactory property="stock"/> </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Price/Cost per Unit">
+                <cellValueFactory><PropertyValueFactory property="price"/> </cellValueFactory>
+            </TableColumn>
         </columns>
     </TableView>
 

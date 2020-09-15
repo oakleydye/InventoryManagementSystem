@@ -47,10 +47,18 @@
         <TextField GridPane.columnIndex="2" promptText="Search by Product ID or Name"/>
         <TableView GridPane.rowIndex="2" GridPane.columnSpan="3" fx:id="grdProducts">
             <columns>
-                <TableColumn text="Product ID"/>
-                <TableColumn text="Product Name"/>
-                <TableColumn text="Inventory Level"/>
-                <TableColumn text="Price/Cost per Unit"/>
+                <TableColumn text="Product ID">
+                    <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Product Name">
+                    <cellValueFactory><PropertyValueFactory property="name"/> </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Inventory Level">
+                    <cellValueFactory><PropertyValueFactory property="stock"/> </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Price/Cost per Unit">
+                    <cellValueFactory><PropertyValueFactory property="price"/> </cellValueFactory>
+                </TableColumn>
             </columns>
         </TableView>
         <HBox GridPane.rowIndex="3" GridPane.columnIndex="2" spacing="10">
