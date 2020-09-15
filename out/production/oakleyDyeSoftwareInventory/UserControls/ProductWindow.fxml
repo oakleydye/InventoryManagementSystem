@@ -11,26 +11,29 @@
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="UserControls.ProductWindowController"
           prefHeight="400.0" prefWidth="600.0">
-    <Label text="Add Product" fx:id="lblAdd" visible="true"/>
-    <Label text="Modify Product" fx:id="lblModify" visible="false"/>
+    <GridPane GridPane.rowSpan="6">
+        <Label text="Add Product" fx:id="lblAdd" visible="true"/>
+        <Label text="Modify Product" fx:id="lblModify" visible="false"/>
+
+        <Label GridPane.rowIndex="1" text="ID"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" text="Auto Gen - Disabled" disable="true"/>
+
+        <Label GridPane.rowIndex="2" text="Name"/>
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="txtName"/>
+
+        <Label GridPane.rowIndex="3" text="Inv"/>
+        <TextField GridPane.rowIndex="3" GridPane.columnIndex="1" fx:id="txtInv"/>
+
+        <Label GridPane.rowIndex="4" text="Price"/>
+        <TextField GridPane.rowIndex="4" GridPane.columnIndex="1" fx:id="txtPrice"/>
+
+        <Label GridPane.rowIndex="5" text="Max"/>
+        <TextField GridPane.rowIndex="5" GridPane.columnIndex="1" fx:id="txtMax"/>
+        <Label GridPane.rowIndex="5" GridPane.columnIndex="2" text="Min"/>
+        <TextField GridPane.rowIndex="5" GridPane.columnIndex="3" fx:id="txtMin"/>
+    </GridPane>
+
     <TextField text="Search by Part ID/Name" fx:id="txtSearch" GridPane.columnIndex="5"/>
-
-    <Label GridPane.rowIndex="1" text="ID"/>
-    <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" text="Auto Gen - Disabled" disable="true"/>
-
-    <Label GridPane.rowIndex="2" text="Name"/>
-    <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="txtName"/>
-
-    <Label GridPane.rowIndex="3" text="Inv"/>
-    <TextField GridPane.rowIndex="3" GridPane.columnIndex="1" fx:id="txtInv"/>
-
-    <Label GridPane.rowIndex="4" text="Price"/>
-    <TextField GridPane.rowIndex="4" GridPane.columnIndex="1" fx:id="txtPrice"/>
-
-    <Label GridPane.rowIndex="5" text="Max"/>
-    <TextField GridPane.rowIndex="5" GridPane.columnIndex="1" fx:id="txtMax"/>
-    <Label GridPane.rowIndex="5" GridPane.columnIndex="2" text="Min"/>
-    <TextField GridPane.rowIndex="5" GridPane.columnIndex="3" fx:id="txtMin"/>
 
     <TableView GridPane.rowIndex="1" GridPane.columnIndex="5" GridPane.rowSpan="3" GridPane.columnSpan="3" fx:id="grdAllParts">
         <columns>
