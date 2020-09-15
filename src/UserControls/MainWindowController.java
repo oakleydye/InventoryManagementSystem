@@ -16,11 +16,11 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 public class MainWindowController {
-    @FXML TableView<Part> grdParts;
-    @FXML TableView<Product> grdProducts;
+    @FXML TableView<Part> grdParts = new TableView<>();
+    @FXML TableView<Product> grdProducts = new TableView<>();
 
     public void init(){
-        //grdParts.itemsProperty().bindBidirectional((Property<ObservableList<Part>>) Inventory.getAllParts());
+        grdParts.setItems(Inventory.getAllParts());
         grdProducts.setItems(Inventory.getAllProducts());
     }
 

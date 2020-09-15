@@ -21,8 +21,8 @@ public class ProductWindowController {
     @FXML TextField txtPrice;
     @FXML TextField txtMax;
     @FXML TextField txtMin;
-    @FXML TableView<Part> grdAllParts;
-    @FXML TableView<Part> grdAssociatedParts;
+    @FXML TableView<Part> grdAllParts = new TableView<>();
+    @FXML TableView<Part> grdAssociatedParts = new TableView<>();
     public Product product = null;
 
     public void init(Product selectedProduct, boolean isModify){
