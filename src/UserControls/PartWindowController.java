@@ -99,7 +99,6 @@ public class PartWindowController {
                             Integer.parseInt(txtMax.getText()),
                             Integer.parseInt(txtMachineId.getText())
                     );
-                    //todo: make sure this actually updates in the grid
                     Inventory.addPart(part);
                 }
                 else{
@@ -141,7 +140,6 @@ public class PartWindowController {
                     Inventory.updatePart(Integer.parseInt(txtID.getText()), part);
                 }
             }
-
             closeWindow();
         }
         catch (Exception ex){
