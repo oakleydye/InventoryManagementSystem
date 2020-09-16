@@ -37,7 +37,7 @@ public class ProductWindowController {
                 if (newItem == null || newItem.isEmpty()){
                     return true;
                 }
-                
+
                 String lowerCase = newItem.toLowerCase();
                 if (part.getName().toLowerCase().contains(lowerCase)){
                     return true;
@@ -102,9 +102,14 @@ public class ProductWindowController {
             );
             Inventory.updateProduct(Integer.parseInt(txtId.getText()), newProduct);
         }
+        closeWindow();
     }
 
     public void btnCancel_Click(ActionEvent actionEvent) {
+        closeWindow();
+    }
+
+    private void closeWindow(){
         ObservableList<Window> windows = Window.getWindows();
         for (Window window : windows){
             if (window instanceof Stage){
