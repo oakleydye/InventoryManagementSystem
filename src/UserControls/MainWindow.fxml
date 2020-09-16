@@ -16,7 +16,7 @@
     <GridPane GridPane.rowIndex="2" GridPane.columnIndex="1">
         <Label text="Parts" />
         <Pane GridPane.hgrow="ALWAYS"/>
-        <TextField GridPane.columnIndex="2" promptText="Search by Part ID or Name" />
+        <TextField GridPane.columnIndex="2" promptText="Search by Part ID or Name" fx:id="txtSearchPart"/>
         <TableView GridPane.rowIndex="2" GridPane.columnSpan="3" fx:id="grdParts">
             <columns>
                 <TableColumn text="Part ID">
@@ -44,7 +44,7 @@
     <GridPane GridPane.rowIndex="2" GridPane.columnIndex="3">
         <Label text="Products"/>
         <Pane GridPane.hgrow="ALWAYS"/>
-        <TextField GridPane.columnIndex="2" promptText="Search by Product ID or Name"/>
+        <TextField GridPane.columnIndex="2" promptText="Search by Product ID or Name" fx:id="txtSearchProduct"/>
         <TableView GridPane.rowIndex="2" GridPane.columnSpan="3" fx:id="grdProducts">
             <columns>
                 <TableColumn text="Product ID">

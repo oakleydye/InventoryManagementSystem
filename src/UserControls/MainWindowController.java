@@ -6,6 +6,7 @@ import Objects.Product;
 import javafx.application.Platform;
 import javafx.beans.property.Property;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,15 +14,45 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class MainWindowController {
     @FXML TableView<Part> grdParts = new TableView<>();
     @FXML TableView<Product> grdProducts = new TableView<>();
+    @FXML TextField txtSearchPart;
+    @FXML TextField txtSearchProduct;
 
     public void init(){
-        grdParts.setItems(Inventory.getAllParts());
-        grdProducts.setItems(Inventory.getAllProducts());
+        FilteredList<Part> filteredParts = new FilteredList<>(Inventory.getAllParts(), p -> true);
+        txtSearchPart.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredParts.setPredicate( part -> {
+                if (newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (part.getName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else return Integer.toString(part.getId()).contains(lowerCaseFilter);
+            });
+        });
+        grdParts.setItems(filteredParts);
+
+        FilteredList<Product> filteredProducts = new FilteredList<>(Inventory.getAllProducts(), p -> true);
+        txtSearchProduct.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredProducts.setPredicate( product -> {
+                if (newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (product.getName().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                } else return Integer.toString(product.getId()).contains(lowerCaseFilter);
+            });
+        });
+        grdProducts.setItems(filteredProducts);
     }
 
     public void btnDeletePart_Click(ActionEvent actionEvent) {
