@@ -34,6 +34,7 @@ public class PartWindowController {
             lblModify.setVisible(true);
             lblAdd.setVisible(false);
             this.selectedPart = part;
+            txtID.setText(Integer.toString(part.getId()));
             txtName.setText(part.getName());
             txtInv.setText(Integer.toString(part.getStock()));
             txtPrice.setText(Double.toString(part.getPrice()));

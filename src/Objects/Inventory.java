@@ -55,18 +55,26 @@ public class Inventory {
     }
 
     public static void updatePart(int index, Part selectedPart){
-        for (Part part : getAllParts()){
+        for (Part part : allParts){
             if (part.getId() == index){
-                part = selectedPart;
+                part.setName(selectedPart.getName());
+                part.setStock(selectedPart.getStock());
+                part.setPrice(selectedPart.getPrice());
+                part.setMin(selectedPart.getMin());
+                part.setMax(selectedPart.getMax());
                 break;
             }
         }
     }
 
     public static void updateProduct(int index, Product newProduct){
-        for (Product product : getAllProducts()){
+        for (Product product : allProducts){
             if (product.getId() == index){
-                product = newProduct;
+                product.setName(newProduct.getName());
+                product.setStock(newProduct.getStock());
+                product.setPrice(newProduct.getPrice());
+                product.setMin(newProduct.getMin());
+                product.setMax(newProduct.getMax());
                 break;
             }
         }
