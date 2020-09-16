@@ -47,6 +47,7 @@ public class ProductWindowController {
         grdAllParts.setItems(filteredParts);
 
         if (isModify){
+            txtId.setText(Integer.toString(selectedProduct.getId()));
             txtName.setText(selectedProduct.getName());
             txtInv.setText(Integer.toString(selectedProduct.getStock()));
             txtPrice.setText(Double.toString(selectedProduct.getPrice()));

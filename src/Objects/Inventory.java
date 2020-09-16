@@ -74,6 +74,12 @@ public class Inventory {
                 product.setPrice(newProduct.getPrice());
                 product.setMin(newProduct.getMin());
                 product.setMax(newProduct.getMax());
+                for (Part part : product.getAllAssociatedParts()){
+                    product.deleteAssociatedPart(part);
+                }
+                for (Part part : newProduct.getAllAssociatedParts()){
+                    product.addAssociatedPart(part);
+                }
                 break;
             }
         }
