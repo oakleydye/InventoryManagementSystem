@@ -73,36 +73,44 @@ public class ProductWindowController {
     }
 
     public void btnSave_Click(ActionEvent actionEvent) {
-        ObservableList<Product> products = Inventory.getAllProducts();
-        int maxId = 0;
-        for (Product product : products){
-            if (product.getId() > maxId){
-                maxId = product.getId();
+        try{
+            ObservableList<Product> products = Inventory.getAllProducts();
+            int maxId = 0;
+            for (Product product : products){
+                if (product.getId() > maxId){
+                    maxId = product.getId();
+                }
             }
-        }
 
-        if (lblAdd.isVisible()){
-            Product newProduct = new Product(
-                    maxId + 1,
-                    txtName.getText(),
-                    Double.parseDouble(txtPrice.getText()),
-                    Integer.parseInt(txtInv.getText()),
-                    Integer.parseInt(txtMin.getText()),
-                    Integer.parseInt(txtMax.getText())
-            );
-            Inventory.addProduct(newProduct);
-        } else{
-            Product newProduct = new Product(
-                    Integer.parseInt(txtId.getText()),
-                    txtName.getText(),
-                    Double.parseDouble(txtPrice.getText()),
-                    Integer.parseInt(txtInv.getText()),
-                    Integer.parseInt(txtMin.getText()),
-                    Integer.parseInt(txtMax.getText())
-            );
-            Inventory.updateProduct(Integer.parseInt(txtId.getText()), newProduct);
+            if (lblAdd.isVisible()){
+                Product newProduct = new Product(
+                        maxId + 1,
+                        txtName.getText(),
+                        Double.parseDouble(txtPrice.getText()),
+                        Integer.parseInt(txtInv.getText()),
+                        Integer.parseInt(txtMin.getText()),
+                        Integer.parseInt(txtMax.getText())
+                );
+                Inventory.addProduct(newProduct);
+            } else{
+                Product newProduct = new Product(
+                        Integer.parseInt(txtId.getText()),
+                        txtName.getText(),
+                        Double.parseDouble(txtPrice.getText()),
+                        Integer.parseInt(txtInv.getText()),
+                        Integer.parseInt(txtMin.getText()),
+                        Integer.parseInt(txtMax.getText())
+                );
+                Inventory.updateProduct(Integer.parseInt(txtId.getText()), newProduct);
+            }
+            closeWindow();
+        } catch (Exception ex){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Inventory Management System");
+            alert.setHeaderText(null);
+            alert.setContentText("Error saving the product, please verify that all values are correct.\r\n" + ex.getMessage());
+            alert.showAndWait();
         }
-        closeWindow();
     }
 
     public void btnCancel_Click(ActionEvent actionEvent) {
