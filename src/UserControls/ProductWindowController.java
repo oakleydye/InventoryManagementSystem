@@ -16,6 +16,7 @@ import javafx.stage.Window;
 public class ProductWindowController {
     @FXML Label lblAdd;
     @FXML Label lblModify;
+    @FXML TextField txtId;
     @FXML TextField txtName;
     @FXML TextField txtInv;
     @FXML TextField txtPrice;
@@ -63,15 +64,27 @@ public class ProductWindowController {
             }
         }
 
-        Product newProduct = new Product(
-                maxId + 1,
-                txtName.getText(),
-                Double.parseDouble(txtPrice.getText()),
-                Integer.parseInt(txtInv.getText()),
-                Integer.parseInt(txtMin.getText()),
-                Integer.parseInt(txtMax.getText())
-        );
-        Inventory.addProduct(newProduct);
+        if (lblAdd.isVisible()){
+            Product newProduct = new Product(
+                    maxId + 1,
+                    txtName.getText(),
+                    Double.parseDouble(txtPrice.getText()),
+                    Integer.parseInt(txtInv.getText()),
+                    Integer.parseInt(txtMin.getText()),
+                    Integer.parseInt(txtMax.getText())
+            );
+            Inventory.addProduct(newProduct);
+        } else{
+            Product newProduct = new Product(
+                    Integer.parseInt(txtId.getText()),
+                    txtName.getText(),
+                    Double.parseDouble(txtPrice.getText()),
+                    Integer.parseInt(txtInv.getText()),
+                    Integer.parseInt(txtMin.getText()),
+                    Integer.parseInt(txtMax.getText())
+            );
+            Inventory.updateProduct(Integer.parseInt(txtId.getText()), newProduct);
+        }
     }
 
     public void btnCancel_Click(ActionEvent actionEvent) {

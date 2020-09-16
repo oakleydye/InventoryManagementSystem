@@ -17,7 +17,7 @@
         <Label text="Modify Product" fx:id="lblModify" visible="false"/>
 
         <Label GridPane.rowIndex="1" text="ID"/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" text="Auto Gen - Disabled" disable="true"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" text="Auto Gen - Disabled" disable="true" fx:id="txtId"/>
 
         <Label GridPane.rowIndex="2" text="Name"/>
         <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="txtName"/>
