@@ -4,6 +4,7 @@ import Objects.Inventory;
 import Objects.Part;
 import Objects.Product;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -22,13 +23,29 @@ public class ProductWindowController {
     @FXML TextField txtPrice;
     @FXML TextField txtMax;
     @FXML TextField txtMin;
+    @FXML TextField txtSearch;
     @FXML TableView<Part> grdAllParts = new TableView<>();
     @FXML TableView<Part> grdAssociatedParts = new TableView<>();
     public Product product = null;
 
     public void init(Product selectedProduct, boolean isModify){
         this.product = selectedProduct;
-        grdAllParts.setItems(Inventory.getAllParts());
+
+        FilteredList<Part> filteredParts = new FilteredList<>(Inventory.getAllParts());
+        txtSearch.textProperty().addListener((observable, oldItem, newItem) -> {
+            filteredParts.setPredicate( part -> {
+                if (newItem == null || newItem.isEmpty()){
+                    return true;
+                }
+                
+                String lowerCase = newItem.toLowerCase();
+                if (part.getName().toLowerCase().contains(lowerCase)){
+                    return true;
+                } else return Integer.toString(part.getId()).contains(lowerCase);
+            });
+        });
+        grdAllParts.setItems(filteredParts);
+
         if (isModify){
             txtName.setText(selectedProduct.getName());
             txtInv.setText(Integer.toString(selectedProduct.getStock()));
