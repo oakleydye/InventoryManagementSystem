@@ -52,8 +52,11 @@ public class ProductWindowController {
             txtPrice.setText(Double.toString(selectedProduct.getPrice()));
             txtMax.setText(Integer.toString(selectedProduct.getMax()));
             txtMin.setText(Integer.toString(selectedProduct.getMin()));
-            grdAssociatedParts.setItems(selectedProduct.getAllAssociatedParts());
+        } else {
+            //dummy product to prevent errors
+            this.product = new Product(0, "", 0, 0, 0, 0);
         }
+        grdAssociatedParts.setItems(this.product.getAllAssociatedParts());
     }
 
     public void btnRemovePart_Click(ActionEvent actionEvent) {
@@ -68,8 +71,16 @@ public class ProductWindowController {
     }
 
     public void btnAddAssociatedPart_Click(ActionEvent actionEvent) {
-        Part selectedPart = grdAllParts.getSelectionModel().getSelectedItem();
-        this.product.addAssociatedPart(selectedPart);
+        try{
+            Part selectedPart = grdAllParts.getSelectionModel().getSelectedItem();
+            this.product.addAssociatedPart(selectedPart);
+        } catch (Exception ex){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Inventory Management System");
+            alert.setHeaderText(null);
+            alert.setContentText("Error saving the product, please verify that all values are correct.\r\n" + ex.getMessage());
+            alert.showAndWait();
+        }
     }
 
     public void btnSave_Click(ActionEvent actionEvent) {
@@ -91,17 +102,22 @@ public class ProductWindowController {
                         Integer.parseInt(txtMin.getText()),
                         Integer.parseInt(txtMax.getText())
                 );
+
+                for (Part part : this.product.getAllAssociatedParts()){
+                    newProduct.addAssociatedPart(part);
+                }
+
                 Inventory.addProduct(newProduct);
             } else{
-                Product newProduct = new Product(
-                        Integer.parseInt(txtId.getText()),
-                        txtName.getText(),
-                        Double.parseDouble(txtPrice.getText()),
-                        Integer.parseInt(txtInv.getText()),
-                        Integer.parseInt(txtMin.getText()),
-                        Integer.parseInt(txtMax.getText())
-                );
-                Inventory.updateProduct(Integer.parseInt(txtId.getText()), newProduct);
+
+                this.product.setId(Integer.parseInt(txtId.getText()));
+                this.product.setName(txtName.getText());
+                this.product.setPrice(Double.parseDouble(txtPrice.getText()));
+                this.product.setStock(Integer.parseInt(txtInv.getText()));
+                this.product.setMin(Integer.parseInt(txtMin.getText()));
+                this.product.setMax(Integer.parseInt(txtMax.getText()));
+
+                Inventory.updateProduct(Integer.parseInt(txtId.getText()), this.product);
             }
             closeWindow();
         } catch (Exception ex){
