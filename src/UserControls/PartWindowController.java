@@ -12,6 +12,11 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+/**
+ * @author Oakley Dye
+ *
+ * FXML Controller for PartWindow.fxml
+ */
 public class PartWindowController {
     @FXML Label lblAdd;
     @FXML Label lblModify;
@@ -29,6 +34,11 @@ public class PartWindowController {
     @FXML Label lblCompany;
     public Part selectedPart = null;
 
+    /**
+     * Method called on PartWindow startup, handles bindings and value assignment
+     * @param part part to modify, if isModify = false, part = null
+     * @param isModify flag to let the app know if the part window should open in modify or add mode
+     */
     public void init(Part part, boolean isModify){
         if (isModify){
             lblModify.setVisible(true);
@@ -60,6 +70,9 @@ public class PartWindowController {
         }
     }
 
+    /**
+     * Event handler. Changes the type of part added
+     */
     public void radInHouse_Click(ActionEvent actionEvent) {
         radOutsourced.setSelected(false);
         radInHouse.setSelected(true);
@@ -69,6 +82,9 @@ public class PartWindowController {
         txtCompany.setVisible(false);
     }
 
+    /**
+     * Event handler. Changes the type of part added
+     */
     public void radOutsourced_Click(ActionEvent actionEvent) {
         radOutsourced.setSelected(true);
         radInHouse.setSelected(false);
@@ -78,6 +94,9 @@ public class PartWindowController {
         txtMachineId.setVisible(false);
     }
 
+    /**
+     * Event handler, saves the new part
+     */
     public void btnSave_Click(ActionEvent actionEvent) {
         try{
             ObservableList<Part> parts = Inventory.getAllParts();
@@ -151,6 +170,10 @@ public class PartWindowController {
         }
     }
 
+    /**
+     * Method to close the current window and return focus to the main window.
+     * Called from btnSave_Click and btnCancel_Click
+     */
     private void closeWindow() {
         ObservableList<Window> windows = Window.getWindows();
         for (Window window : windows){
@@ -167,6 +190,9 @@ public class PartWindowController {
         stage.close();
     }
 
+    /**
+     * Event handler, closes the current window
+     */
     public void btnCancel_Click(ActionEvent actionEvent) {
         closeWindow();
     }

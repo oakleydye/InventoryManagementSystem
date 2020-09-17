@@ -14,6 +14,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+/**
+ * @author Oakley Dye
+ *
+ * FXML controller for ProductWindow.fxml
+ */
 public class ProductWindowController {
     @FXML Label lblAdd;
     @FXML Label lblModify;
@@ -28,6 +33,11 @@ public class ProductWindowController {
     @FXML TableView<Part> grdAssociatedParts = new TableView<>();
     public Product product = null;
 
+    /**
+     * Startup method, handles bindings and value assignment
+     * @param selectedProduct product we are modifying, null if isModify = false
+     * @param isModify flag to let the app know to open in modify or add mode
+     */
     public void init(Product selectedProduct, boolean isModify){
         this.product = selectedProduct;
 
@@ -60,6 +70,10 @@ public class ProductWindowController {
         grdAssociatedParts.setItems(this.product.getAllAssociatedParts());
     }
 
+    /**
+     * Event handler, removes a selected part from the product's associated parts.
+     * @param actionEvent
+     */
     public void btnRemovePart_Click(ActionEvent actionEvent) {
         Part selectedPart = grdAssociatedParts.getSelectionModel().getSelectedItem();
         if (!this.product.deleteAssociatedPart(selectedPart)){
@@ -71,6 +85,10 @@ public class ProductWindowController {
         }
     }
 
+    /**
+     * Event handler, adds a part to the product's list of associated parts
+     * @param actionEvent
+     */
     public void btnAddAssociatedPart_Click(ActionEvent actionEvent) {
         try{
             Part selectedPart = grdAllParts.getSelectionModel().getSelectedItem();
@@ -84,6 +102,10 @@ public class ProductWindowController {
         }
     }
 
+    /**
+     * Event handler, saves the new product or updates the existing one.
+     * @param actionEvent
+     */
     public void btnSave_Click(ActionEvent actionEvent) {
         try{
             ObservableList<Product> products = Inventory.getAllProducts();
@@ -130,10 +152,17 @@ public class ProductWindowController {
         }
     }
 
+    /**
+     * Event handler, closes the current window
+     * @param actionEvent
+     */
     public void btnCancel_Click(ActionEvent actionEvent) {
         closeWindow();
     }
 
+    /**
+     * Method to close the current window and return focus to the main window.
+     */
     private void closeWindow(){
         ObservableList<Window> windows = Window.getWindows();
         for (Window window : windows){

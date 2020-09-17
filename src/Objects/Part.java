@@ -5,7 +5,7 @@ package Objects;
 
 /**
  *
- * @author Place Your Name Here
+ * @author Oakley Dye
  */
 public abstract class Part {
     private int id;

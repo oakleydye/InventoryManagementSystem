@@ -5,6 +5,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * @author Oakley Dye
+ *
+ * Main class, houses startup methods.
+ */
 public class Main extends Application {
 
     @Override
