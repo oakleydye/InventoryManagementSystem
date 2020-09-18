@@ -131,7 +131,7 @@ public class ProductWindowController {
                 }
 
                 Inventory.addProduct(newProduct);
-            } else{
+            } else {
 
                 this.product.setId(Integer.parseInt(txtId.getText()));
                 this.product.setName(txtName.getText());

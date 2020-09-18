@@ -4,7 +4,6 @@ import Objects.InHouse;
 import Objects.Inventory;
 import Objects.Outsourced;
 import Objects.Part;
-import javafx.beans.Observable;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
