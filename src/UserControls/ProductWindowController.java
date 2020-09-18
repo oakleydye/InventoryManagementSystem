@@ -125,39 +125,58 @@ public class ProductWindowController {
                 }
             }
 
-            if (lblAdd.isVisible()){
-                Product newProduct = new Product(
-                        maxId + 1,
-                        txtName.getText(),
-                        Double.parseDouble(txtPrice.getText()),
-                        Integer.parseInt(txtInv.getText()),
-                        Integer.parseInt(txtMin.getText()),
-                        Integer.parseInt(txtMax.getText())
-                );
+            if (Validate()){
+                if (lblAdd.isVisible()){
+                    Product newProduct = new Product(
+                            maxId + 1,
+                            txtName.getText(),
+                            Double.parseDouble(txtPrice.getText()),
+                            Integer.parseInt(txtInv.getText()),
+                            Integer.parseInt(txtMin.getText()),
+                            Integer.parseInt(txtMax.getText())
+                    );
 
-                for (Part part : this.product.getAllAssociatedParts()){
-                    newProduct.addAssociatedPart(part);
+                    for (Part part : this.product.getAllAssociatedParts()){
+                        newProduct.addAssociatedPart(part);
+                    }
+
+                    Inventory.addProduct(newProduct);
+                } else {
+
+                    this.product.setId(Integer.parseInt(txtId.getText()));
+                    this.product.setName(txtName.getText());
+                    this.product.setPrice(Double.parseDouble(txtPrice.getText()));
+                    this.product.setStock(Integer.parseInt(txtInv.getText()));
+                    this.product.setMin(Integer.parseInt(txtMin.getText()));
+                    this.product.setMax(Integer.parseInt(txtMax.getText()));
+
+                    Inventory.updateProduct(Integer.parseInt(txtId.getText()), this.product);
                 }
-
-                Inventory.addProduct(newProduct);
+                closeWindow();
             } else {
-
-                this.product.setId(Integer.parseInt(txtId.getText()));
-                this.product.setName(txtName.getText());
-                this.product.setPrice(Double.parseDouble(txtPrice.getText()));
-                this.product.setStock(Integer.parseInt(txtInv.getText()));
-                this.product.setMin(Integer.parseInt(txtMin.getText()));
-                this.product.setMax(Integer.parseInt(txtMax.getText()));
-
-                Inventory.updateProduct(Integer.parseInt(txtId.getText()), this.product);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Inventory Management System");
+                alert.setHeaderText(null);
+                alert.setContentText("Error saving the part, inv must be between min and max");
+                alert.showAndWait();
             }
-            closeWindow();
         } catch (Exception ex){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Inventory Management System");
             alert.setHeaderText(null);
             alert.setContentText("Error saving the product, please verify that all values are correct.\r\n" + ex.getMessage());
             alert.showAndWait();
+        }
+    }
+
+    private boolean Validate(){
+        try {
+            int max = Integer.parseInt(txtMax.getText());
+            int min = Integer.parseInt(txtMin.getText());
+            int inv = Integer.parseInt(txtInv.getText());
+            return max > min && max >= inv && inv >= min;
+        } catch (Exception ex){
+            return false;
         }
     }
 

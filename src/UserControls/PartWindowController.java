@@ -106,59 +106,67 @@ public class PartWindowController {
                 }
             }
 
-            if (lblAdd.isVisible()){
-                if (radInHouse.isSelected()){
-                    InHouse part = new InHouse(
-                            maxId + 1,
-                            txtName.getText(),
-                            Double.parseDouble(txtPrice.getText()),
-                            Integer.parseInt(txtInv.getText()),
-                            Integer.parseInt(txtMin.getText()),
-                            Integer.parseInt(txtMax.getText()),
-                            Integer.parseInt(txtMachineId.getText())
-                    );
-                    Inventory.addPart(part);
+            if (Validate()){
+                if (lblAdd.isVisible()){
+                    if (radInHouse.isSelected()){
+                        InHouse part = new InHouse(
+                                maxId + 1,
+                                txtName.getText(),
+                                Double.parseDouble(txtPrice.getText()),
+                                Integer.parseInt(txtInv.getText()),
+                                Integer.parseInt(txtMin.getText()),
+                                Integer.parseInt(txtMax.getText()),
+                                Integer.parseInt(txtMachineId.getText())
+                        );
+                        Inventory.addPart(part);
+                    }
+                    else{
+                        Outsourced part = new Outsourced(
+                                maxId + 1,
+                                txtName.getText(),
+                                Double.parseDouble(txtPrice.getText()),
+                                Integer.parseInt(txtInv.getText()),
+                                Integer.parseInt(txtMin.getText()),
+                                Integer.parseInt(txtMax.getText()),
+                                txtCompany.getText()
+                        );
+                        Inventory.addPart(part);
+                    }
                 }
                 else{
-                    Outsourced part = new Outsourced(
-                            maxId + 1,
-                            txtName.getText(),
-                            Double.parseDouble(txtPrice.getText()),
-                            Integer.parseInt(txtInv.getText()),
-                            Integer.parseInt(txtMin.getText()),
-                            Integer.parseInt(txtMax.getText()),
-                            txtCompany.getText()
-                    );
-                    Inventory.addPart(part);
+                    if (radInHouse.isSelected()) {
+                        InHouse part = new InHouse(
+                                Integer.parseInt(txtID.getText()),
+                                txtName.getText(),
+                                Double.parseDouble(txtPrice.getText()),
+                                Integer.parseInt(txtInv.getText()),
+                                Integer.parseInt(txtMin.getText()),
+                                Integer.parseInt(txtMax.getText()),
+                                Integer.parseInt(txtMachineId.getText())
+                        );
+                        Inventory.updatePart(Integer.parseInt(txtID.getText()), part);
+                    }
+                    else{
+                        Outsourced part = new Outsourced(
+                                Integer.parseInt(txtID.getText()),
+                                txtName.getText(),
+                                Double.parseDouble(txtPrice.getText()),
+                                Integer.parseInt(txtInv.getText()),
+                                Integer.parseInt(txtMin.getText()),
+                                Integer.parseInt(txtMax.getText()),
+                                txtCompany.getText()
+                        );
+                        Inventory.updatePart(Integer.parseInt(txtID.getText()), part);
+                    }
                 }
+                closeWindow();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Inventory Management System");
+                alert.setHeaderText(null);
+                alert.setContentText("Error saving the part, inv must be between min and max");
+                alert.showAndWait();
             }
-            else{
-                if (radInHouse.isSelected()) {
-                    InHouse part = new InHouse(
-                            Integer.parseInt(txtID.getText()),
-                            txtName.getText(),
-                            Double.parseDouble(txtPrice.getText()),
-                            Integer.parseInt(txtInv.getText()),
-                            Integer.parseInt(txtMin.getText()),
-                            Integer.parseInt(txtMax.getText()),
-                            Integer.parseInt(txtMachineId.getText())
-                    );
-                    Inventory.updatePart(Integer.parseInt(txtID.getText()), part);
-                }
-                else{
-                    Outsourced part = new Outsourced(
-                            Integer.parseInt(txtID.getText()),
-                            txtName.getText(),
-                            Double.parseDouble(txtPrice.getText()),
-                            Integer.parseInt(txtInv.getText()),
-                            Integer.parseInt(txtMin.getText()),
-                            Integer.parseInt(txtMax.getText()),
-                            txtCompany.getText()
-                    );
-                    Inventory.updatePart(Integer.parseInt(txtID.getText()), part);
-                }
-            }
-            closeWindow();
         }
         catch (Exception ex){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -166,6 +174,17 @@ public class PartWindowController {
             alert.setHeaderText(null);
             alert.setContentText("Error saving the part, please verify that all values are correct.\r\n" + ex.getMessage());
             alert.showAndWait();
+        }
+    }
+
+    private boolean Validate(){
+        try {
+            int max = Integer.parseInt(txtMax.getText());
+            int min = Integer.parseInt(txtMin.getText());
+            int inv = Integer.parseInt(txtInv.getText());
+            return max > min && max >= inv && inv >= min;
+        } catch (Exception ex){
+            return false;
         }
     }
 

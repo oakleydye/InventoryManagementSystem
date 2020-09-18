@@ -134,11 +134,19 @@ public class MainWindowController {
     public void btnDeleteProduct_Click(ActionEvent actionEvent) {
         Product selectedProduct = grdProducts.getSelectionModel().getSelectedItem();
         if (selectedProduct != null) {
-            if (!Inventory.deleteProduct(selectedProduct)){
+            if (!selectedProduct.getAllAssociatedParts().isEmpty()){
+                if (!Inventory.deleteProduct(selectedProduct)){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Inventory Management System");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Error removing product");
+                    alert.showAndWait();
+                }
+            } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Inventory Management System");
                 alert.setHeaderText(null);
-                alert.setContentText("Error removing product");
+                alert.setContentText("Error removing product, please remove all associated parts first");
                 alert.showAndWait();
             }
         }
