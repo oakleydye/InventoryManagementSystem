@@ -4,8 +4,6 @@ import Objects.Inventory;
 import Objects.Part;
 import Objects.Product;
 import javafx.application.Platform;
-import javafx.beans.property.Property;
-import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
