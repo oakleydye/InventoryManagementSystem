@@ -51,7 +51,16 @@ public class ProductWindowController {
                 String lowerCase = newItem.toLowerCase();
                 if (part.getName().toLowerCase().contains(lowerCase)){
                     return true;
-                } else return Integer.toString(part.getId()).contains(lowerCase);
+                } else if (Integer.toString(part.getId()).contains(lowerCase)){
+                    return true;
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Inventory Management System");
+                    alert.setHeaderText(null);
+                    alert.setContentText("No part found for search criteria");
+                    alert.showAndWait();
+                    return false;
+                }
             });
         });
         grdAllParts.setItems(filteredParts);

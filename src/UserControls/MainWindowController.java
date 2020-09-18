@@ -42,7 +42,16 @@ public class MainWindowController {
                 String lowerCaseFilter = newValue.toLowerCase();
                 if (part.getName().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else return Integer.toString(part.getId()).contains(lowerCaseFilter);
+                } else if (Integer.toString(part.getId()).contains(lowerCaseFilter)){
+                    return true;
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Inventory Management System");
+                    alert.setHeaderText(null);
+                    alert.setContentText("No part found for search criteria");
+                    alert.showAndWait();
+                    return false;
+                }
             });
         });
         grdParts.setItems(filteredParts);
@@ -57,7 +66,16 @@ public class MainWindowController {
                 String lowerCaseFilter = newValue.toLowerCase();
                 if (product.getName().toLowerCase().contains(lowerCaseFilter)){
                     return true;
-                } else return Integer.toString(product.getId()).contains(lowerCaseFilter);
+                } else if (Integer.toString(product.getId()).contains(lowerCaseFilter)){
+                    return true;
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Inventory Management System");
+                    alert.setHeaderText(null);
+                    alert.setContentText("No part found for search criteria");
+                    alert.showAndWait();
+                    return false;
+                }
             });
         });
         grdProducts.setItems(filteredProducts);
