@@ -10,8 +10,13 @@ import javafx.stage.Stage;
  *
  * Main class, houses startup methods.
  */
-public class Main extends Application {
 
+/**
+ * FUTURE ENHANCEMENTS: I think one of the most obvious enhancements to make
+ * (albeit a little unreasonable for this assignment) would be to convert the inventory class to a data layer
+ * instead of a static class and have it interface with a database.
+ */
+public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UserControls/MainWindow.fxml"));

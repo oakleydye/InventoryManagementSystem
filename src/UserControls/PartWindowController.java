@@ -43,6 +43,12 @@ public class PartWindowController {
             lblModify.setVisible(true);
             lblAdd.setVisible(false);
             this.selectedPart = part;
+            /**
+             * RUNTIME ERROR: the application was throwing an error when saving a modification to a part.
+             * This was corrected by setting the ID field equal to the ID of the part
+             * being modified. The error was thrown due to the app trying to parse
+             * "Auto Gen - Disabled" to an int value.
+             */
             txtID.setText(Integer.toString(part.getId()));
             txtName.setText(part.getName());
             txtInv.setText(Integer.toString(part.getStock()));
