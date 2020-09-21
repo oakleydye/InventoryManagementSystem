@@ -192,7 +192,7 @@ public class MainWindowController {
         ProductWindowController controller = fxmlLoader.getController();
         controller.init(selectedProduct, isModify);
         Stage stage = new Stage();
-        stage.setScene(new Scene(scene, 800, 600));
+        stage.setScene(new Scene(scene, 1000, 600));
         stage.show();
     }
 

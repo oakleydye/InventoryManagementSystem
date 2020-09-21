@@ -10,9 +10,9 @@
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="UserControls.ProductWindowController"
-          prefHeight="400.0" prefWidth="600.0">
+          prefHeight="400.0" prefWidth="800.0">
 
-    <GridPane GridPane.rowSpan="6" vgap="10">
+    <GridPane GridPane.rowSpan="6" vgap="10" hgap="10">
         <Label text="Add Product" fx:id="lblAdd" visible="true"/>
         <Label text="Modify Product" fx:id="lblModify" visible="false"/>
 
