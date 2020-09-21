@@ -10,10 +10,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import javax.swing.text.html.Option;
+import java.util.Optional;
 
 /**
  * @author Oakley Dye
@@ -83,14 +84,20 @@ public class MainWindowController {
      * Event handler, deletes a selected part from inventory
      */
     public void btnDeletePart_Click(ActionEvent actionEvent) {
-        Part selectedPart = grdParts.getSelectionModel().getSelectedItem();
-        if (selectedPart != null){
-            if (!Inventory.deletePart(selectedPart)){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Inventory Management System");
-                alert.setHeaderText(null);
-                alert.setContentText("Error removing part");
-                alert.showAndWait();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Inventory Management System");
+        alert.setContentText("Are you sure you would like to delete the selected part?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK){
+            Part selectedPart = grdParts.getSelectionModel().getSelectedItem();
+            if (selectedPart != null){
+                if (!Inventory.deletePart(selectedPart)){
+                    Alert error = new Alert(Alert.AlertType.INFORMATION);
+                    error.setTitle("Inventory Management System");
+                    error.setHeaderText(null);
+                    error.setContentText("Error removing part");
+                    error.showAndWait();
+                }
             }
         }
     }
@@ -130,22 +137,28 @@ public class MainWindowController {
      * Event handler, deletes selected product
      */
     public void btnDeleteProduct_Click(ActionEvent actionEvent) {
-        Product selectedProduct = grdProducts.getSelectionModel().getSelectedItem();
-        if (selectedProduct != null) {
-            if (!selectedProduct.getAllAssociatedParts().isEmpty()){
-                if (!Inventory.deleteProduct(selectedProduct)){
+        Alert delete = new Alert(Alert.AlertType.CONFIRMATION);
+        delete.setTitle("Inventory Management System");
+        delete.setContentText("Are you sure you would like to delete the selected product?");
+        Optional<ButtonType> result = delete.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK){
+            Product selectedProduct = grdProducts.getSelectionModel().getSelectedItem();
+            if (selectedProduct != null) {
+                if (!selectedProduct.getAllAssociatedParts().isEmpty()){
+                    if (!Inventory.deleteProduct(selectedProduct)){
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Inventory Management System");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Error removing product");
+                        alert.showAndWait();
+                    }
+                } else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Inventory Management System");
                     alert.setHeaderText(null);
-                    alert.setContentText("Error removing product");
+                    alert.setContentText("Error removing product, please remove all associated parts first");
                     alert.showAndWait();
                 }
-            } else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Inventory Management System");
-                alert.setHeaderText(null);
-                alert.setContentText("Error removing product, please remove all associated parts first");
-                alert.showAndWait();
             }
         }
     }

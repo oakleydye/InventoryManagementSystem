@@ -7,12 +7,11 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+
+import java.util.Optional;
 
 /**
  * @author Oakley Dye
@@ -66,6 +65,8 @@ public class ProductWindowController {
         grdAllParts.setItems(filteredParts);
 
         if (isModify){
+            lblAdd.setVisible(false);
+            lblModify.setVisible(true);
             txtId.setText(Integer.toString(selectedProduct.getId()));
             txtName.setText(selectedProduct.getName());
             txtInv.setText(Integer.toString(selectedProduct.getStock()));
@@ -84,13 +85,19 @@ public class ProductWindowController {
      * @param actionEvent
      */
     public void btnRemovePart_Click(ActionEvent actionEvent) {
-        Part selectedPart = grdAssociatedParts.getSelectionModel().getSelectedItem();
-        if (!this.product.deleteAssociatedPart(selectedPart)){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Inventory Management System");
-            alert.setHeaderText(null);
-            alert.setContentText("Error removing part");
-            alert.showAndWait();
+        Alert remove = new Alert(Alert.AlertType.CONFIRMATION);
+        remove.setTitle("Inventory Management System");
+        remove.setContentText("Are you sure you would like to remove the selected associated part?");
+        Optional<ButtonType> result = remove.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK){
+            Part selectedPart = grdAssociatedParts.getSelectionModel().getSelectedItem();
+            if (!this.product.deleteAssociatedPart(selectedPart)){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Inventory Management System");
+                alert.setHeaderText(null);
+                alert.setContentText("Error removing part");
+                alert.showAndWait();
+            }
         }
     }
 
