@@ -10,6 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oakleyDyeSoftwareInventory/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oakleyDyeSoftwareInventory/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oakleyDyeSoftwareInventory/UserControls/PartWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oakleyDyeSoftwareInventory/UserControls/PartWindowController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,6 +230,7 @@
       <workItem from="1600406501096" duration="5464000" />
       <workItem from="1602821832101" duration="6901000" />
       <workItem from="1604062760590" duration="1239000" />
+      <workItem from="1620272361869" duration="2592000" />
     </task>
     <servers />
   </component>
@@ -249,110 +252,6 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="128" y="22" key="#Project_Structure" timestamp="1598535858492">
-      <screen x="0" y="22" width="1280" height="778" />
-    </state>
-    <state x="128" y="22" key="#Project_Structure/0.22.1280.778@0.22.1280.778" timestamp="1598535858492" />
-    <state x="104" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602852011443">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state x="104" y="52" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1602852011443" />
-    <state x="104" y="73" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.22.1280.778@0.22.1280.778" timestamp="1598966392379" />
-    <state x="427" y="123" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1598932187290">
-      <screen x="0" y="22" width="1280" height="778" />
-    </state>
-    <state x="427" y="123" key="#com.intellij.ide.macro.MacrosDialog/0.22.1280.778@0.22.1280.778" timestamp="1598932187290" />
-    <state x="453" y="124" key="#com.intellij.ide.util.MemberChooser" timestamp="1598876302172">
-      <screen x="0" y="22" width="1280" height="778" />
-    </state>
-    <state x="453" y="124" key="#com.intellij.ide.util.MemberChooser/0.22.1280.778@0.22.1280.778" timestamp="1598876302172" />
-    <state x="491" y="118" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1602826614366">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state x="491" y="118" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1280.800@0.0.1280.800" timestamp="1602826614366" />
-    <state x="379" y="141" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1600693737899">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state x="379" y="141" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.800@0.0.1280.800" timestamp="1600693737899" />
-    <state x="164" y="0" key="CommitChangelistDialog2" timestamp="1599627619499">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state x="164" y="0" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1599627619499" />
-    <state width="1238" height="212" key="GridCell.Tab.0.bottom" timestamp="1600744442818">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1600744442818" />
-    <state width="1238" height="246" key="GridCell.Tab.0.bottom/0.22.1280.778@0.22.1280.778" timestamp="1599101835552" />
-    <state width="1238" height="212" key="GridCell.Tab.0.center" timestamp="1600744442817">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1600744442817" />
-    <state width="1238" height="246" key="GridCell.Tab.0.center/0.22.1280.778@0.22.1280.778" timestamp="1599101835551" />
-    <state width="1238" height="212" key="GridCell.Tab.0.left" timestamp="1600744442815">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1600744442815" />
-    <state width="1238" height="246" key="GridCell.Tab.0.left/0.22.1280.778@0.22.1280.778" timestamp="1599101835551" />
-    <state width="1238" height="212" key="GridCell.Tab.0.right" timestamp="1600744442817">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1600744442817" />
-    <state width="1238" height="246" key="GridCell.Tab.0.right/0.22.1280.778@0.22.1280.778" timestamp="1599101835552" />
-    <state width="1238" height="263" key="GridCell.Tab.1.bottom" timestamp="1600406333623">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state width="1238" height="263" key="GridCell.Tab.1.bottom/0.0.1280.800@0.0.1280.800" timestamp="1600406333623" />
-    <state width="1238" height="263" key="GridCell.Tab.1.bottom/0.22.1280.778@0.22.1280.778" timestamp="1600263944213" />
-    <state width="1238" height="263" key="GridCell.Tab.1.center" timestamp="1600406333622">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state width="1238" height="263" key="GridCell.Tab.1.center/0.0.1280.800@0.0.1280.800" timestamp="1600406333622" />
-    <state width="1238" height="263" key="GridCell.Tab.1.center/0.22.1280.778@0.22.1280.778" timestamp="1600263944210" />
-    <state width="1238" height="263" key="GridCell.Tab.1.left" timestamp="1600406333621">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state width="1238" height="263" key="GridCell.Tab.1.left/0.0.1280.800@0.0.1280.800" timestamp="1600406333621" />
-    <state width="1238" height="263" key="GridCell.Tab.1.left/0.22.1280.778@0.22.1280.778" timestamp="1600263944208" />
-    <state width="1238" height="263" key="GridCell.Tab.1.right" timestamp="1600406333623">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state width="1238" height="263" key="GridCell.Tab.1.right/0.0.1280.800@0.0.1280.800" timestamp="1600406333623" />
-    <state width="1238" height="263" key="GridCell.Tab.1.right/0.22.1280.778@0.22.1280.778" timestamp="1600263944212" />
-    <state x="141" y="0" key="SettingsEditor" timestamp="1602826678579">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state x="141" y="0" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1602826678579" />
-    <state x="141" y="50" key="SettingsEditor/0.22.1280.778@0.22.1280.778" timestamp="1598931924795" />
-    <state x="317" y="310" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1598535838221">
-      <screen x="0" y="22" width="1280" height="778" />
-    </state>
-    <state x="317" y="310" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.22.1280.778@0.22.1280.778" timestamp="1598535838221" />
-    <state x="167" y="143" width="946" height="617" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1600262914102">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state x="167" y="143" width="946" height="617" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1280.800@0.0.1280.800" timestamp="1600262914102" />
-    <state x="42" y="22" width="1238" height="759" key="dock-window-1" timestamp="1598593447424">
-      <screen x="0" y="22" width="1280" height="778" />
-    </state>
-    <state x="42" y="22" width="1238" height="759" key="dock-window-1/0.22.1280.778@0.22.1280.778" timestamp="1598593447424" />
-    <state x="378" y="155" key="extract.method.dialog" timestamp="1600086734900">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state x="378" y="155" key="extract.method.dialog/0.0.1280.800@0.0.1280.800" timestamp="1600086734900" />
-    <state x="305" y="185" width="670" height="675" key="run.anything.popup" timestamp="1598932242879">
-      <screen x="0" y="22" width="1280" height="778" />
-    </state>
-    <state x="305" y="185" width="670" height="675" key="run.anything.popup/0.22.1280.778@0.22.1280.778" timestamp="1598932242879" />
-    <state x="440" y="265" key="scopes" timestamp="1600692217400">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state x="440" y="265" key="scopes/0.0.1280.800@0.0.1280.800" timestamp="1600692217400" />
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1598621603543">
-      <screen x="0" y="22" width="1280" height="778" />
-    </state>
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.22.1280.778@0.22.1280.778" timestamp="1598621603543" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
